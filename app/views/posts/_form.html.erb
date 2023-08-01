@@ -16,6 +16,9 @@
     <%= form.text_field :title %>
   </div>
 
+  <%= form.label :category, 'カテゴリー' %>
+  <%= form.select :category, Category.names.keys %>
+
   <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content %>

@@ -17,7 +17,7 @@
   </div>
 
   <%= form.label :category, 'カテゴリー' %>
-  <%= form.select :category, Category.names.keys %>
+  <%= form.select :category, ['生活', '仕事', '健康'] %>
 
   <div class="field">
     <%= form.label :content %>

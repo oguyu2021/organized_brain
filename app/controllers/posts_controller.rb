@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :set_q, only: [:index, :search]
+  before_action :authenticate_user!, only: [:index]
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = current_user.posts.order(created_at: :desc)
 
     if params[:sort_priority] == 'true'
       @posts = @posts.reorder(priority: 'ASC')
@@ -27,8 +28,7 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     #binding.pry
-    @post = Post.new(post_params)
-   
+    @post = current_user.posts.build(post_params)
     respond_to do |format|
       if @post.save
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
@@ -63,6 +63,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -72,5 +76,9 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:title, :content, :priority, :category)
+    end
+
+    def set_q
+      @q = Post.ransack(params[:q])
     end
 end

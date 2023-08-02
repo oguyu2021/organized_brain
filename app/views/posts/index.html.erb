@@ -4,10 +4,18 @@
   <h1>Posts</h1>
 <% end %>
 
+<h1>コンテンツ検索</h1>
+<%= search_form_for @q, url: search_posts_path do |f| %>
+  <%= f.label :content_cont, 'コンテンツ内容' %>
+  <%= f.search_field :content_cont %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
+
 <table>
   <thead>
     <tr>
-      <th>Title</th>
+      <th>Title</th>      
       <th>Content</th>
       <th>Priority</th>
       <th colspan="3"></th>

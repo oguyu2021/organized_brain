@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = current_user.posts.order(created_at: :desc)
-
     if params[:sort_priority] == 'true'
       @posts = @posts.reorder(priority: 'ASC')
     end
@@ -27,8 +26,10 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    #binding.pry
     @post = current_user.posts.build(post_params)
+    #binding.pry
+    @post.public = params[:post][:public] != "true"
+    
     respond_to do |format|
       if @post.save
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
@@ -64,7 +65,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @results = @q.result
+    @results = @q.result.where(public: true)
   end
 
   private
@@ -75,7 +76,7 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :content, :priority, :category)
+      params.require(:post).permit(:title, :content, :priority, :category, :public)
     end
 
     def set_q

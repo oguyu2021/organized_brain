@@ -1,28 +1,5 @@
 ja:
   admin:
-    js:
-      true: True
-      false: False
-      is_present: 存在する
-      is_blank: 空白
-      date: 日付 ...
-      between_and_: ... から ...
-      today: 今日
-      yesterday: 昨日
-      this_week: 今週
-      last_week: 先週
-      time: 時刻 ...
-      number: 数字 ...
-      contains: 含む
-      does_not_contain: 含まない
-      is_exactly: 完全に一致
-      starts_with: で始まる
-      ends_with: で終わる
-      too_many_objects: "対象が多すぎます、上の検索ボックスを使用してください"
-      no_objects: "対象が見つかりません"
-      clear: クリア
-    loading: "読み込み中..."
-    toggle_navigation: ナビゲーション切り替え
     home:
       name: "ホーム"
     pagination:

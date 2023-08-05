@@ -9,7 +9,6 @@ class MessagesController < ApplicationController
     # このような記載にしていますが、実戦で用いるのには少々冗長なコードとなっているので
     # 余力のある人はコードのリファクタリングにも挑戦してみましょう！
     @messages = @conversation.messages
-  
     if @messages.length > 10
       @over_ten = true
       @messages = Message.where(id: @messages[-10..-1].pluck(:id))

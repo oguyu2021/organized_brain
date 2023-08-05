@@ -62,6 +62,7 @@ gem 'rexml'
 gem 'devise-i18n'
 gem 'rails_admin'
 gem 'ransack'
+gem 'cancancan'
 
 
 

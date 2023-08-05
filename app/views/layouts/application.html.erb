@@ -27,6 +27,10 @@
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
 
+    <% if current_user && current_user.admin? %>
+     <%= link_to "管理者ページ", rails_admin_path %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

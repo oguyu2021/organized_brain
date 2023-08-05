@@ -1,12 +1,12 @@
 <% if current_user.try(:admin?) %>
-  <h1>Posts_admin</h1>
+  <h1>管理者専用</h1>
 <% else %>
-  <h1>Posts</h1>
+  <h1>一般</h1>
 <% end %>
 
 <h1>コンテンツ検索</h1>
 <%= search_form_for @q, url: search_posts_path do |f| %>
-  <%= f.label :content_cont, 'コンテンツ内容' %>
+  <%= f.label :content_cont, '調べたいキーワードは何？' %>
   <%= f.search_field :content_cont %>
   <br>
   <%= f.submit '検索' %>
@@ -18,6 +18,7 @@
       <th>Title</th>      
       <th>Content</th>
       <th>Priority</th>
+      <th>public</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,6 +29,7 @@
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <td><%= post.priority %></td>
+        <td><%= post.public %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -38,6 +40,6 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to '新規投稿', new_post_path %>
 
-<th><%= link_to "整理", posts_path(sort_priority: "true") %></th>
+<th><%= link_to "優先順位に並び替え", posts_path(sort_priority: "true") %></th>

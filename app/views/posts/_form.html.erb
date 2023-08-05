@@ -29,6 +29,11 @@
     <%= form.select :priority, [['高', '高'], ['中', '中'], ['低', '低']], prompt: '優先順位を選択してください' %>
   </div>
 
+  <div class="field">
+    <%= form.label :public, "公開" %>
+    <%= form.check_box :public, { checked: true } %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

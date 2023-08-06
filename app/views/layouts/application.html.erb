@@ -27,6 +27,8 @@
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
 
+    <li><%= link_to 'メッセージ一覧', users_path %></li>
+
     <% if current_user && current_user.admin? %>
      <%= link_to "管理者ページ", rails_admin_path %>
     <% end %>

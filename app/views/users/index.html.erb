@@ -1,0 +1,18 @@
+<h2>ユーザー</h2>
+<ul>
+  <% @users.each do |user| %>
+    <% next if user == current_user %> <!-- Skip displaying the current user -->
+
+    <% conversation = current_user.conversations.between(current_user.id, user.id).first %>
+    <% next unless conversation.present? && conversation.messages.any? %> <!-- Skip users without conversations or messages -->
+
+    <li>
+      <div class="item">
+        <%= link_to user.name, user %>
+        <%= link_to 'メッセージ', conversation_messages_path(conversation), method: :get %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Top', posts_path %>

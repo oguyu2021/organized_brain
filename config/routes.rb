@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   get 'users/:id/message', to: 'users#message', as: :user_message
 
   root 'posts#index'
+
+  namespace :admin do
+    post 'guest_login', to: 'admin_guest_sessions#create'
+  end
+  post 'guest_login', to: 'guest_sessions#create'
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

@@ -64,6 +64,9 @@ gem 'rails_admin'
 gem 'ransack'
 gem 'cancancan'
 
+gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
 
 
 

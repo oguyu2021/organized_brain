@@ -17,13 +17,14 @@
 
 <div class="container mt-4">
   <% @posts.group_by(&:category).each do |category, posts| %>
-    <h2>カテゴリー（<%= category %>）</h2>
+    <h2> <%= category %> </h2>
     <table class="table table-striped">
       <thead>
         <tr>
           <th>Title</th>
           <th>Content</th>
           <th>Priority</th>
+          <th>Public</th>
         </tr>
       </thead>
       <tbody>
@@ -32,6 +33,7 @@
             <td><%= post.title %></td>
             <td><%= post.content %></td>
             <td><%= post.priority %></td>
+            <td><%= post.public %></td>
             <td><%= link_to 'Show', post, class: 'btn btn-info btn-sm' %></td>
             <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning btn-sm' %></td>
             <td>

@@ -17,9 +17,9 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  namespace :admin do
-    post 'guest_login', to: 'admin_guest_sessions#create'
-  end
+  
+  post 'guest_admin_login', to: 'admin_guest_sessions#create'
+  
   post 'guest_login', to: 'guest_sessions#create'
 
   if Rails.env.development?

@@ -34,7 +34,6 @@
             <p class="alert alert-error"><%= alert %></p>
           <% end %>
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><%= link_to "メッセージ一覧", users_path, class: "nav-link" %></li>
             <% if current_user && current_user.admin? %>
               <li class="nav-item"><%= link_to "管理者ページ", rails_admin_path, class: "nav-link", data: {turbolinks: "false"} %></li>
             <% end %>
@@ -46,13 +45,11 @@
     <%= yield %>
 
     <footer class="footer mt-auto py-3">
-      <div class="container text-center">
-        <span class="text-muted">Meyasubako &copy; <%= Time.now.year %></span>
-      </div>
-      <div class="container">
-          <p class="text-muted navbar-nav"><%= link_to "トップページ", top_index_path, class: "nav-link" %></p>
-        </div>
-    </footer>
+    <div class="container text-center">
+      <span class="text-muted">Meyasubako &copy; <%= Time.now.year %></span>
+      <span class="text-muted"><%= link_to "トップページ", top_index_path, class: "nav-link" %></span>
+    </div>  
+  </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

@@ -11,7 +11,8 @@
 <div class="container mt-4">
   <%= link_to '新規投稿', new_post_path, class: 'btn btn-success' %>
   <span class="ml-2">
-    <%= link_to "優先順位に並び替え", posts_path(sort_priority: "true"), class: 'btn btn-secondary' %>
+    <%= link_to "優先順位に並び替え", posts_path(sort_priority: "true"), class: 'btn btn-success' %>
+    <%= link_to "メッセージ一覧", users_path, class: "btn btn-success" %></li>
   </span>
 </div>
 

@@ -4,6 +4,7 @@
  - ruby 3.0.1
 
 ## 就業Termで学んだ技術
+ - devise
  - メッセージ機能
  - AWS EC2
 

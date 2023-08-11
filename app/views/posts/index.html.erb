@@ -1,48 +1,59 @@
 <% if current_user.try(:admin?) %>
-  <h1>管理者専用</h1>
+  <div class="container">
+    <h1>管理者専用</h1>
+  </div>
 <% else %>
-  <h1>一般</h1>
+  <div class="container">
+    <h1>一般</h1>
+  </div>
 <% end %>
 
-<h1>コンテンツ検索</h1>
-<%= search_form_for @q, url: search_posts_path do |f| %>
-  <%= f.label :content_cont, '調べたいキーワードは何？' %>
-  <%= f.search_field :content_cont %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
+<div class="container mt-4">
+  <%= link_to '新規投稿', new_post_path, class: 'btn btn-success' %>
+  <span class="ml-2">
+    <%= link_to "優先順位に並び替え", posts_path(sort_priority: "true"), class: 'btn btn-success' %>
+    <%= link_to "メッセージ一覧", users_path, class: "btn btn-success" %></li>
+  </span>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>      
-      <th>Content</th>
-      <th>Priority</th>
-      <th>public</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container mt-4">
+  <% @posts.group_by(&:category).each do |category, posts| %>
+    <h2> <%= category %> </h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Priority</th>
+          <th>Public</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% posts.each do |post| %>
+          <tr>
+            <td><%= post.title %></td>
+            <td><%= post.content %></td>
+            <td><%= post.priority %></td>
+            <td><%= post.public %></td>
+            <td><%= link_to 'Show', post, class: 'btn btn-info btn-sm' %></td>
+            <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning btn-sm' %></td>
+            <td>
+              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= post.priority %></td>
-        <td><%= post.public %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-
-
-
-<%= link_to '新規投稿', new_post_path %>
-
-<th><%= link_to "優先順位に並び替え", posts_path(sort_priority: "true") %></th>
+<div class="container">
+  <h1>コンテンツ検索</h1>
+  <%= search_form_for @q, url: search_posts_path, html: { class: 'form-inline' } do |f| %>
+    <div class="form-group">
+      <%= f.label :content_cont, '調べたいキーワードを入力してください。' %>
+      <%= f.search_field :content_cont, class: 'form-control' %>
+    </div>
+    <%= f.submit '検索', class: 'btn btn-primary ml-2' %>
+  <% end %>
+</div>

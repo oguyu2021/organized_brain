@@ -1,8 +1,7 @@
-<%= form_with(model: post) do |form| %>
+<%= form_with(model: post, class: 'needs-validation', data: { 'was-validated': 'true' }) do |form| %>
   <% if post.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
         <% post.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,30 +10,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :category, 'カテゴリー', class: 'form-label' %>
+    <%= form.select :category, ['生活', '仕事', '健康'], { include_blank: 'カテゴリーを選択してください' }, class: 'form-select', required: true %>
   </div>
 
-  <%= form.label :category, 'カテゴリー' %>
-  <%= form.select :category, ['生活', '仕事', '健康'] %>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label' %>
+    <%= form.text_field :title, class: 'form-control', required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :priority %>
-    <%= form.select :priority, [['高', '高'], ['中', '中'], ['低', '低']], prompt: '優先順位を選択してください' %>
+  <div class="mb-3">
+    <%= form.label :content, class: 'form-label' %>
+    <%= form.text_area :content, class: 'form-control', required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :public, "公開" %>
-    <%= form.check_box :public, { checked: true } %>
+  <div class="mb-3">
+    <%= form.label :priority, class: 'form-label' %>
+    <%= form.select :priority, [['高', '高'], ['中', '中'], ['低', '低']], { include_blank: '優先順位を選択してください' }, class: 'form-select', required: true %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="mb-3 form-check">
+    <%= form.label :public, class: 'form-check-label' do %>
+      <%= form.check_box :public, class: 'form-check-input', checked: true %>
+      公開
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit '保存', class: 'btn btn-primary' %>
   </div>
 <% end %>

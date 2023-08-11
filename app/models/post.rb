@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  validates :title, presence: true
+  validates :content, presence: true
   belongs_to :user
   enum priority: { 高: 0, 中: 1, 低: 2 }
   enum category: { 生活: 0, 仕事: 1, 健康: 2 }

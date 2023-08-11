@@ -50,7 +50,7 @@
   <h1>コンテンツ検索</h1>
   <%= search_form_for @q, url: search_posts_path, html: { class: 'form-inline' } do |f| %>
     <div class="form-group">
-      <%= f.label :content_cont, '調べたいキーワードを入力してください' %>
+      <%= f.label :content_cont, '調べたいキーワードを入力してください。' %>
       <%= f.search_field :content_cont, class: 'form-control' %>
     </div>
     <%= f.submit '検索', class: 'btn btn-primary ml-2' %>

@@ -67,6 +67,7 @@ gem 'cancancan'
 gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
+gem 'faker'
 
 
 

@@ -27,7 +27,7 @@ RSpec.describe Post, type: :model do
 
   describe 'スコープのテスト' do
     before do
-      user = User.create(email: 'sample@.com', password: 'aaaaaaaa', sign_in_count: 0 )
+      user = User.create(name: 'test', email: 'sample@.com', password: 'aaaaaaaa', sign_in_count: 0 )
       
       Post.create(title: 'タスク1', content: '詳細1', priority: '中', category: '生活', public: true, user_id: user.id)
       Post.create(title: 'タスク2', content: '詳細2', priority: '低', category: '仕事', public: true, user_id: user.id)

@@ -4,8 +4,8 @@ require 'rails_helper'
 RSpec.describe Message, type: :model do
   describe 'バリデーションのテスト' do
     it 'body、conversation_id、user_idが存在すれば有効であること' do
-      sender = User.create(email: 'sender@example.com', password: 'password', sign_in_count: 0)
-      recipient = User.create(email: 'recipient@example.com', password: 'password', sign_in_count: 0)
+      sender = User.create(name: 'hoge', email: 'sender@example.com', password: 'password', sign_in_count: 0)
+      recipient = User.create(name: 'huga', email: 'recipient@example.com', password: 'password', sign_in_count: 0)
       conversation = Conversation.create(sender_id: sender.id, recipient_id: recipient.id)
       message = Message.new(body: 'テストメッセージ', conversation_id: conversation.id, user_id: sender.id)
 

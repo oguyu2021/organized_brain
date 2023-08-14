@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :posts
 
+  validates :name, presence: true
+
   has_many :sent_conversations, foreign_key: :sender_id, class_name: 'Conversation'
   has_many :received_conversations, foreign_key: :recipient_id, class_name: 'Conversation'
 

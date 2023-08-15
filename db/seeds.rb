@@ -8,17 +8,16 @@
 
 # db/seeds.rb
 
-# Seed Users
+#Users
 5.times do |i|
   User.create!(
     email: "user#{i + 1}@example.com",
     password: "password",
     name: "User #{i + 1}"
-    # Add other attributes as needed
   )
 end
 
-# Seed Conversations and Messages
+#Conversations and Messages
 users = User.all
 users.each do |user|
   recipient = users.sample
@@ -39,16 +38,15 @@ users.each do |user|
   end
 end
 
-# Seed Posts
-users.each do |user|
-  5.times do |i|
-    Post.create!(
-      title: "Post #{i + 1}",
-      content: "This is the content of post #{i + 1}.",
-      priority: i + 1,
-      user_id: user.id,
-      category: i % 3,
-      public: [true, false].sample
-    )
-  end
+#Posts
+5.times do |i|
+  Post.create!(
+    title: "Post Title #{i + 1}",
+    content: "This is the content for post #{i + 1}.",
+    priority: Post.priorities.keys.sample, # ランダムな優先度を選択
+    category: Post.categories.keys.sample, # ランダムなカテゴリを選択
+    user_id: User.pluck(:id).sample, # 適切なユーザーIDを選択
+    public: [true, false].sample
+  )
 end
+

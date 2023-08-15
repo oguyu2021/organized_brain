@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   describe 'バリデーションのテスト' do
     context 'タスクのタイトルが空の場合' do
-      it 'バリデーションにひっかる' do
+      it 'バリデーションにかかる' do
         post = Post.new(title: '', content: '失敗テスト')
         expect(post).not_to be_valid
       end
     end
     
     context 'タスクの詳細が空の場合' do
-      it 'バリデーションにひっかかる' do
+      it 'バリデーションにかかる' do
         post = Post.new(title: 'タイトル', content: '')
         expect(post).not_to be_valid
       end

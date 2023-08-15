@@ -9,31 +9,31 @@ RSpec.describe 'ユーザーモデル機能', type: :model do
       end
     end
     context 'ユーザーの名前が空の場合' do
-      it 'バリデーションにひっかる' do
+      it 'バリデーションにかかる' do
         user = User.new(name: '', email: 'test@test.com', password: 'password')
         expect(user).not_to be_valid
       end
     end
     context 'ユーザーのemailが空の場合' do
-      it 'バリデーションにひっかる' do
+      it 'バリデーションにかかる' do
         user = User.new(name: 'test', email: '', password: 'password')
         expect(user).not_to be_valid
       end
     end
     context 'ユーザーのemailがemailではない場合' do
-      it 'バリデーションにひっかる' do
+      it 'バリデーションにかかる' do
         user = User.new(name: 'test', email: 'test', password: 'password')
         expect(user).not_to be_valid
       end
     end
     context 'ユーザーのpasswordが空の場合' do
-      it 'バリデーションにひっかる' do
+      it 'バリデーションにかかる' do
         user = User.new(name: 'test', email: 'test@test.com', password: '')
         expect(user).not_to be_valid
       end
     end
     context 'ユーザーのpasswordが5文字の場合' do
-      it 'バリデーションにひっかる' do
+      it 'バリデーションにかかる' do
         user = User.new(name: 'test', email: 'test@test.com', password: 'passw')
         expect(user).not_to be_valid
       end

@@ -27,7 +27,6 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = current_user.posts.build(post_params)
-    #binding.pry
     @post.public = params[:post][:public] != "true"
     
     respond_to do |format|

@@ -67,6 +67,10 @@
   }
 </style>
 
+<div class="container">
+    <h1>トークルーム</h1>
+  </div>
+
 <div class="chat-container">
   <% if @over_ten %>
     <%= link_to '以前のメッセージ', '?m=all', class: 'btn btn-primary mb-3' %>
@@ -99,4 +103,4 @@
   <% end %>
 </div>
 
-<%= link_to 'Top', posts_path, class: 'btn btn-secondary mt-4' %>
+<%= link_to '一覧画面', posts_path, class: 'btn btn-secondary mt-4' %>

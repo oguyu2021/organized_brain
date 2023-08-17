@@ -25,7 +25,7 @@ RSpec.describe "ユーザー機能", type: :system do
       let!(:user) { FactoryBot.create(:user) }
         before do
           sign_in user
-          visit root_path
+          visit posts_path
         end
       context 'ログインをした場合' do
         it 'ログインできる' do

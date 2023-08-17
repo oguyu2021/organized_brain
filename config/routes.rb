@@ -15,9 +15,7 @@ Rails.application.routes.draw do
 
   get 'users/:id/message', to: 'users#message', as: :user_message
 
-  root 'posts#index'
-
-  resources :top, only: [:index]
+  root 'tops#index'
   
   post 'guest_admin_login', to: 'admin_guest_sessions#create'
   

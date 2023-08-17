@@ -27,6 +27,7 @@
               <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
             <% end %>
           </ul>
+           <span class="text-muted"><%= link_to "トップページ", root_path, class: "nav-link" %></span>
           <% if notice %>
             <p class="alert alert-notice"><%= notice %></p>
           <% end %>
@@ -41,13 +42,13 @@
         </div>
       </div>
     </nav>
+   
 
     <%= yield %>
 
     <footer class="footer mt-auto py-3">
     <div class="container text-center">
       <span class="text-muted">Meyasubako &copy; <%= Time.now.year %></span>
-      <span class="text-muted"><%= link_to "トップページ", root_path, class: "nav-link" %></span>
     </div>  
   </footer>
 

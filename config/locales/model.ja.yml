@@ -1,12 +1,16 @@
 ja:
   activerecord:
     models:
-      blog: ブログ
+      message: メッセージ
+      post: ポスト
       user: ユーザー
     attributes:
-      blog:
+      post:
         title: タイトル
         content: 内容
+        priority: 優先度
+        category: カテゴリー
+        public: 公開
       user:
         title: タイトル
         name: 名前

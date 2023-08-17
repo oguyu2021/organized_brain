@@ -11,6 +11,6 @@ class AdminGuestSessionsController < ApplicationController
     end
 
     sign_in user
-    redirect_to root_path, notice: '管理者としてログインしました。'
+    redirect_to posts_path, notice: '管理者としてログインしました。'
   end
 end

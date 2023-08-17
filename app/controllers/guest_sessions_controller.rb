@@ -7,7 +7,7 @@ class GuestSessionsController < ApplicationController
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to posts_path, notice: 'ゲストユーザーとしてログインしました。'
     # ここではセッションを作成せず、単に閲覧用のロジックを実行します
     # 例: 特定の閲覧用アクションを実行
   end

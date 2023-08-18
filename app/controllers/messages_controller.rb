@@ -4,6 +4,11 @@ class MessagesController < ApplicationController
   end
 
   def index
+    @conversation = Conversation.find(params[:conversation_id])
+    unless @conversation.sender == current_user || @conversation.recipient == current_user
+      redirect_to conversations_path
+    end
+
     @messages = @conversation.messages
     if @messages.length > 10
       @over_ten = true

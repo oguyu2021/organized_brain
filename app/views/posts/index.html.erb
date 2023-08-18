@@ -12,7 +12,7 @@
   <%= link_to '新規投稿', new_post_path, class: 'btn btn-success' %>
   <span class="ml-2">
     <%= link_to "優先順位に並び替え", posts_path(sort_priority: "true"), class: 'btn btn-success' %>
-    <%= link_to "メッセージ一覧", users_path, class: "btn btn-success" %></li>
+    <%= link_to "メッセージ一覧", conversations_path, class: "btn btn-success" %></li>
   </span>
 </div>
 
@@ -22,10 +22,10 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Title</th>
-          <th>Content</th>
-          <th>Priority</th>
-          <th>Public</th>
+          <th>タイトル</th>
+          <th>コンテンツ</th>
+          <th>優先度</th>
+          <th>公開</th>
         </tr>
       </thead>
       <tbody>
@@ -35,10 +35,10 @@
             <td><%= post.content %></td>
             <td><%= post.priority %></td>
             <td><%= post.public %></td>
-            <td><%= link_to 'Show', post, class: 'btn btn-info btn-sm' %></td>
-            <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning btn-sm' %></td>
+            <td><%= link_to '詳細', post, class: 'btn btn-info btn-sm' %></td>
+            <td><%= link_to '編集', edit_post_path(post), class: 'btn btn-warning btn-sm' %></td>
             <td>
-              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+              <%= link_to '消去', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
             </td>
           </tr>
         <% end %>

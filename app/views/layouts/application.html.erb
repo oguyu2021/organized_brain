@@ -31,9 +31,7 @@
           <% if notice %>
             <p class="alert alert-notice"><%= notice %></p>
           <% end %>
-          <% if alert %>
-            <p class="alert alert-error"><%= alert %></p>
-          <% end %>
+          
           <ul class="navbar-nav ml-auto">
             <% if current_user && current_user.admin? %>
               <li class="nav-item"><%= link_to "管理者ページ", rails_admin_path, class: "nav-link", data: {turbolinks: "false"} %></li>
@@ -43,7 +41,6 @@
       </div>
     </nav>
    
-
     <%= yield %>
 
     <footer class="footer mt-auto py-3">

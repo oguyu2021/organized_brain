@@ -3,6 +3,7 @@
   <head>
     <title>Meyasubako</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag('favicon.ico') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -13,7 +14,9 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <%= link_to "Meyasubako", root_path, class: "navbar-brand" %>
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag 'logo_meyasubako 2.png', alt: 'Meyasubako ロゴ', width: 100, height: 100 %>
+          <% end %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

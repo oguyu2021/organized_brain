@@ -7,14 +7,11 @@
     <%= image_tag asset_path('meyasubako.png'), class: "img-fluid", alt: "Meyasubako" %>
     <h1 class="mt-4">アプリ概要</h1>
     <hr class="border-primary">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <p class="mt-4" style="font-size: 14px;">
-        このアプリは、日頃の悩みを整理し、人との繋がりで解決していくアプリです。<br>
-        ”目安箱”というものをご存知でしょうか。昔江戸時代に町民が日頃の不平不満を紙に書き、<br>
-        下の画像のような目安箱という箱に紙を入れ、殿様に伝えていたそうです。</p>
-      </div>
-    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">このアプリは、日頃の悩みを整理し、人との繋がりで解決していくアプリです。</li>
+        <li class="list-group-item">”目安箱”というものをご存知でしょうか。昔江戸時代に町民が日頃の不平不満を紙に書き、</li>
+        <li class="list-group-item">下の画像のような目安箱という箱に紙を入れ、殿様に伝えていたそうです。</li>
+      </ul>
     <div class="row justify-content-center">
       <div class="col-7">
       <%= link_to new_user_session_path do %>
@@ -36,8 +33,6 @@
       </ul>
     </div>
   </div>
-
-  
 
   <!-- JavaScript libraries (Bootstrap and others) -->
 </body>

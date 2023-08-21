@@ -191,6 +191,9 @@ GEM
     nokogiri (1.15.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
+    notifications (1.1.0)
+      kaminari (>= 0.15)
+      rails (>= 5.2)
     orm_adapter (0.5.0)
     pg (1.5.3)
     pry (0.14.2)
@@ -362,6 +365,7 @@ DEPENDENCIES
   net-imap
   net-pop
   net-smtp
+  notifications
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)

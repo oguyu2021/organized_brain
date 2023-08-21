@@ -64,7 +64,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @results = @q.result.where(public: true)
+    @results = Post.where(public: true).where.not(user_id: current_user.id).ransack(params[:q]).result
   end
 
 

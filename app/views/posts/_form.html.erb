@@ -17,11 +17,11 @@
 
   <div class="mb-3">
     <%= form.label :title, class: 'form-label' %>
-    <%= form.text_field :title, class: 'form-control', required: true %>
+    <%= form.text_field :title, class: 'form-control', required: true, style: 'width: 300px;' %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :content, class: 'form-label' %>
+    <%= form.label :content, 'コンテンツ', class: 'form-label' %>
     <%= form.text_area :content, class: 'form-control', required: true %>
   </div>
 

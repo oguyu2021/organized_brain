@@ -3,19 +3,19 @@
 
 <body>
   
-  <div class="container text-center">
-    <%= image_tag asset_path('meyasubako.png'), class: "img-fluid", alt: "Meyasubako" %>
+  <div class="container text-center mt-5">
+    <%= image_tag asset_path('logo.png'), class: "img-fluid", alt: "Meyasubako", width: 500, height: 500 %>
     <h1 class="mt-4">アプリ概要</h1>
     <hr class="border-primary">
     <ul class="list-group list-group-flush">
         <li class="list-group-item">このアプリは、日頃の悩みを整理し、人との繋がりで解決していくアプリです。</li>
-        <li class="list-group-item">”目安箱”というものをご存知でしょうか。昔江戸時代に町民が日頃の不平不満を紙に書き、</li>
+        <li class="list-group-item">”目安箱”をご存知でしょうか。江戸時代の頃に町民が日頃の不平不満を紙に書き、</li>
         <li class="list-group-item">下の画像のような目安箱という箱に紙を入れ、殿様に伝えていたそうです。</li>
       </ul>
     <div class="row justify-content-center">
       <div class="col-7">
       <%= link_to new_user_session_path do %>
-        <%= image_tag asset_path('box.png'), class: "img-fluid", alt: "目安箱" %>
+        <%= image_tag asset_path('meyasu_box.png'), class: "img-fluid", alt: "目安箱", width: 200, height: 200 %>
       <% end %>
       </div>
     </div>
@@ -24,12 +24,12 @@
     <hr class="border-primary">
     <div class="mt-4">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">上の目安箱をクリックしてログインする。</li>
-        <li class="list-group-item">悩みなどを投稿する。</li>
-        <li class="list-group-item">カテゴリー分けや優先順位などで悩みを整理する。</li>
-        <li class="list-group-item">解決したい悩みのキーワードを検索する。</li>
-        <li class="list-group-item">キーワード検索からヒットしたユーザーとメッセージのやり取りをする。</li>
-        <li class="list-group-item">自分の投稿（相手からメッセージが来る）、メッセージ（相手とメッセージする）で人との繋がりが増える。</li>
+        <li class="list-group-item">1, 上の目安箱をクリックしてログインする。</li>
+        <li class="list-group-item">2, 悩みなどを投稿する。</li>
+        <li class="list-group-item">3, カテゴリー分けや優先順位などで悩みを整理する。</li>
+        <li class="list-group-item">4, 解決したい悩みのキーワードを検索する。</li>
+        <li class="list-group-item">5, キーワード検索からヒットしたユーザーとメッセージのやり取りをする。</li>
+        <li class="list-group-item">6, メッセージで悩みを共有・解決する。</li>
       </ul>
     </div>
   </div>

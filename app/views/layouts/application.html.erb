@@ -13,15 +13,26 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
       <div class="container">
         <%= link_to root_path, class: "navbar-brand" do %>
-          <%= image_tag 'logo_meyasubako 2.png', alt: 'Meyasubako ロゴ', width: 100, height: 100 %>
+          <%= image_tag 'logo.png', alt: 'Meyasubako ロゴ', width: 80, height: 80 %>
           <% end %>
+
+        <style>
+  .navbar-toggler-icon.custom-icon {
+    background-color: white; /* アイコンの背景色を白に指定 */
+  }
+</style>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon custom-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
+        <style>
+  .navbar-nav .nav-item .nav-link {
+    color: white !important; /* ナビゲーションリンクの文字色を白に指定 */
+  }
+</style>
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li class="nav-item"><div class="nav-link"><%= current_user.name %>の部屋</div></li>
@@ -31,7 +42,7 @@
               <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
             <% end %>
           </ul>
-           <span class="text-muted"><%= link_to "トップページ", root_path, class: "nav-link" %></span>
+           <span class="text-item"><%= link_to "トップページ", root_path, class: "nav-link" %></span>
           <% if notice %>
             <p class="alert alert-notice"><%= notice %></p>
           <% end %>
@@ -47,9 +58,21 @@
    
     <%= yield %>
 
-    <footer class="footer fixed-bottom">
+    <style>
+  /* トップ画面コンテンツの下にスペースを確保 */
+  .content {
+    margin-bottom: 100px; /* 適切な値を設定 */
+  }
+</style>
+
+<!-- トップ画面コンテンツ -->
+<div class="content">
+  <!-- ここにトップ画面のコンテンツを配置 -->
+</div>
+
+    <footer class="footer fixed-bottom bg-secondary">
       <div class="container text-center">
-        <span class="text-muted">Meyasubako &copy; <%= Time.now.year %></span>
+        <span class="text-white">Meyasubako &copy; <%= Time.now.year %></span>
       </div>  
     </footer>
 

@@ -9,10 +9,10 @@
 <% end %>
 
 <div class="container mt-4">
-  <%= link_to '新規投稿', new_post_path, class: 'btn btn-success' %>
+  <%= link_to '新規投稿', new_post_path, class: 'btn btn-info btn-sm' %>
   <span class="ml-2">
-    <%= link_to "優先順位に並び替え", posts_path(sort_priority: "true"), class: 'btn btn-success' %>
-    <%= link_to "メッセージ一覧", users_path, class: "btn btn-success" %></li>
+    <%= link_to "優先順位に並び替え", posts_path(sort_priority: "true"), class: 'btn btn-info  btn-sm' %>
+    <%= link_to "メッセージ一覧", users_path, class: "btn btn-info btn-sm" %></li>
   </span>
 </div>
 
@@ -35,10 +35,10 @@
             <td><%= post.content %></td>
             <td><%= post.priority %></td>
             <td><%= post.public %></td>
-            <td><%= link_to '詳細', post, class: 'btn btn-info btn-sm' %></td>
-            <td><%= link_to '編集', edit_post_path(post), class: 'btn btn-warning btn-sm' %></td>
+            <td><%= link_to '詳細', post, class: 'btn btn-success btn-sm' %></td>
+            <td><%= link_to '編集', edit_post_path(post), class: 'btn btn-success btn-sm' %></td>
             <td>
-              <%= link_to '消去', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+              <%= link_to '消去', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-success btn-sm' %>
             </td>
           </tr>
         <% end %>
